@@ -79,6 +79,9 @@ LIBMAPLE_MODULES += $(SRCROOT)/wirish
 #LIBMAPLE_MODULES += $(SRCROOT)/libraries/LiquidCrystal
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/Wire
 
+# Third party libraries:
+LIBMAPLE_MODULES += $(SRCROOT)/libraries/TinyGPS10
+
 # Experimental libraries:
 #LIBMAPLE_MODULES += $(SRCROOT)/libraries/FreeRTOS
 
