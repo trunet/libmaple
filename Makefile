@@ -80,7 +80,7 @@ LIBMAPLE_MODULES += $(SRCROOT)/wirish
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/Wire
 
 # Third party libraries:
-LIBMAPLE_MODULES += $(SRCROOT)/libraries/TinyGPS10
+LIBMAPLE_MODULES += $(SRCROOT)/libraries/TinyGPS
 
 # Experimental libraries:
 #LIBMAPLE_MODULES += $(SRCROOT)/libraries/FreeRTOS
