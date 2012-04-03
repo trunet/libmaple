@@ -78,10 +78,11 @@ LIBMAPLE_MODULES += $(SRCROOT)/wirish
 #LIBMAPLE_MODULES += $(SRCROOT)/libraries/Servo
 #LIBMAPLE_MODULES += $(SRCROOT)/libraries/LiquidCrystal
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/Wire
-LIBMAPLE_MODULES += $(SRCROOT)/libraries/APM_BMP085
 
 # Third party libraries:
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/TinyGPS
+LIBMAPLE_MODULES += $(SRCROOT)/libraries/APM_BMP085
+LIBMAPLE_MODULES += $(SRCROOT)/libraries/EEPROM
 
 # Experimental libraries:
 #LIBMAPLE_MODULES += $(SRCROOT)/libraries/FreeRTOS

@@ -8,7 +8,7 @@
     version 2.1 of the License, or (at your option) any later version.
 
 	Sensor is conected to I2C port
-	Sensor End of Conversion (EOC) pin is PC7 (30)
+	Sensor End of Conversion (EOC) pin is PC15 (12)
 	
 	Variables:
 		RawTemp : Raw temperature data
@@ -50,7 +50,7 @@ extern "C" {
 //#define WIRE
 
 #define BMP085_ADDRESS 0x77  //(0xEE >> 1)
-#define BMP085_EOC 94        // End of conversion pin PE0
+#define BMP085_EOC 12        // End of conversion pin PC15
 i2c_msg msgsbmp[3];
 
 #define I2CDELAY 1
@@ -72,11 +72,11 @@ void APM_BMP085_Class::Init(int initialiseWireLib)
   pinMode(BMP085_EOC,INPUT);   // End Of Conversion (PC7) input
   
   if( initialiseWireLib != 0 )
-#ifdef WIRE
-	  Wire.begin();
-#else
-  i2c_master_enable(I2C1, 0);
-#endif
+//#ifdef WIRE
+//	  Wire.begin();
+//#else
+//  i2c_master_enable(I2C1, 0);
+//#endif
   oss = 3;           // Over Sampling setting 3 = High resolution
   BMP085_State = 0;     // Initial state
 #ifdef WIRE
@@ -155,36 +155,36 @@ uint8_t result=0;
 
 	if (BMP085_State==1)
 	{
-		//if (digitalRead(BMP085_EOC))
-		//{
+		if (digitalRead(BMP085_EOC))
+		{
 			ReadTemp();             // On state 1 we read temp
 			BMP085_State++;
 			Command_ReadPress();
-		//}
+		}
 	}
 	else
 	{
 		if (BMP085_State==5)
 		{
-		//	if (digitalRead(BMP085_EOC))
-		//	{
+			if (digitalRead(BMP085_EOC))
+			{
 				ReadPress();
 				Calculate();
 				BMP085_State = 1;    // Start again from state=1
 				Command_ReadTemp();  // Read Temp
 				result=1;            // New pressure reading
-			//}
+			}
 		}
 		else
 		{
-			//if (digitalRead(BMP085_EOC))
-			//{
+			if (digitalRead(BMP085_EOC))
+			{
 				ReadPress();
 				Calculate();
 				BMP085_State++;
 				Command_ReadPress();
 				result=1;            // New pressure reading
-			//}
+			}
 		}
 	}
   return(result);
