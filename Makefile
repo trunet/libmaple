@@ -82,6 +82,7 @@ LIBMAPLE_MODULES += $(SRCROOT)/libraries/Wire
 # Third party libraries:
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/TinyGPS
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/APM_BMP085
+LIBMAPLE_MODULES += $(SRCROOT)/libraries/BMA020
 LIBMAPLE_MODULES += $(SRCROOT)/libraries/EEPROM
 
 # Experimental libraries:
